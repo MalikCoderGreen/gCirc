@@ -1,0 +1,13 @@
+{% extends 'gCirc_app/base.html' %}
+{% load static %}
+
+{% block body_block %}
+<body onload="startGame()">
+<div class="container">
+<script type="text/javascript" src="{% static '/js/oneEdit.js' %}"></script>
+</div>
+<h2 id="one_edit_header">One Edit</h2>
+<p id="one_edit_p">Choose the right word before the timer runs out to win!</p>
+
+</body>
+{% endblock %}
