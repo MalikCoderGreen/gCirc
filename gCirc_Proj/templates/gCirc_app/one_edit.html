@@ -2,12 +2,21 @@
 {% load static %}
 
 {% block body_block %}
-<body onload="startGame()">
-<div class="container">
-<script type="text/javascript" src="{% static '/js/oneEdit.js' %}"></script>
-</div>
+<body>
 <h2 id="one_edit_header">One Edit</h2>
 <p id="one_edit_p">Choose the right word before the timer runs out to win!</p>
+<div id="gButtonContainer" class="container">
+<button id="gameButton" class="center btn btn-primary" onclick="setTimeout(startGame, 3000); hide()">
+Start
+</button>
+</div>
+&nbsp;
+<canvas id="myCanvas" width="400" height="600">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
 
+
+    <script type="text/javascript" src="{% static '/js/oneEdit.js' %}"></script>
+    
 </body>
 {% endblock %}
