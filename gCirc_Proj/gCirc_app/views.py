@@ -13,7 +13,7 @@ class IndexView(TemplateView):
         return context
 
 
-class OneEditGameView(TemplateView): 
-    template_name = 'gCirc_app/one_edit.html'
+class TriviaView(TemplateView): 
+    template_name = 'gCirc_app/trivia.html'
 
     

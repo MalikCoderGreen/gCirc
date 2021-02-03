@@ -43,6 +43,8 @@ function makeSquares(){
   
     var yPos1 = 0, yPos2 = 0; // Will be left square position and right square position.
     wordSquareList = [] // List to hold all word squares.
+    qSetWords = [] // List to hold all words from a question set.
+    squareRects = [] 
     
     // Loop to draw all squares to the game canvas. 
     for(var i = 0; i < 6; i++){
@@ -54,6 +56,8 @@ function makeSquares(){
             wordSquare.beginPath();
             wordSquare.strokeStyle = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
             wordSquare.rect(0, yPos1, myGameArea.width / 2, myGameArea.height / 3);
+            squareRects.push([0, yPos1]);
+
             wordSquare.stroke();
             wordSquareList.push(wordSquare);
             yPos1 += 200;
@@ -66,6 +70,8 @@ function makeSquares(){
             wordSquare.beginPath();
             wordSquare.strokeStyle = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
             wordSquare.rect(200, yPos2, myGameArea.width / 2, myGameArea.height / 3);
+            squareRects.push([200, yPos2]);
+
             wordSquare.stroke();
             wordSquareList.push(wordSquare);
             yPos2 += 200;        
@@ -77,7 +83,7 @@ function makeSquares(){
     // Set style for all words in list. 
     wordSquareList[0].font = 'italic 900 22px Russo One';
     wordSquareList[0].textAlign = 'center';
-    wordSquareList[0].fillStyle = 'white';
+    wordSquareList[0].fillStyle = 'blue';
 
 
     // Loop that will print all words into the game squares of the screen.
@@ -86,15 +92,19 @@ function makeSquares(){
         
         if(i < 3){
             wordSquareList[i].fillText(gameSet[qSet][i+1], 100, lPos);
+            qSetWords.push(gameSet[qSet][i+1]);
+
             wordSquareList[i].textAlign = 'center';
-            wordSquareList[i].fillStyle = 'white';
+            wordSquareList[i].fillStyle = 'blue';
+
             lPos += 200;
         }
 
         else{
             wordSquareList[i].fillText(gameSet[qSet][i+1], 300, rPos);
+            qSetWords.push(gameSet[qSet][i+1]);
             wordSquareList[i].textAlign = 'center';
-            wordSquareList[i].fillStyle = 'white';
+            wordSquareList[i].fillStyle = 'blue';
             rPos += 200;
         }
 
@@ -110,13 +120,21 @@ function makeSquares(){
         let x = event.clientX - rect.left; 
         let y = event.clientY - rect.top; 
 
-        if( x <= 199 && y < 200){
-            alert("You touched The first square; word is:  " + wordSquareList[0]);
-        } 
 
-        else{
-            alert("Some other square, x pos: " + x);
+        // Find out which sqaure was touched and if the answer is correct. 
+
+        for(var i = 0; i < wordSquareList.length; i++){
+            if( (squareRects[i][0] < x && x < squareRects[i][0] + 200) && (squareRects[i][1] < y && squareRects[i][1] + 200 > y)){
+                if(qSetWords[i] == gameSet[qSet][7]){
+                    alert("The answer is correct!");
+                }
+
+                else{
+                    alert("The answer is wrong...");
+                }
+            }
         }
+    
     }
 
     

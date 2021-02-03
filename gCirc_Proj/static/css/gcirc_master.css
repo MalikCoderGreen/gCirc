@@ -1,4 +1,5 @@
 #gcirc_main_header, #one_edit_header {
+    
     font-family: 'Russo One', sans-serif;
     font-weight:900; 
     font-style:italic;
@@ -29,8 +30,8 @@
 }
 
 #myCanvas {
-    border: 1px solid #d3d3d3;
-    background-color: #000000;
+    border: 4px solid #181717;
+    background-color: #ffffff;
     margin-left: auto;
     margin-right: auto;
     display: block;
