@@ -9,7 +9,7 @@
     color: rgb(21, 61, 180);
 }
 
-#one_edit_p {
+#one_edit_p, #gScore {
 
     font-family: 'Russo One', sans-serif;
     font-weight:900; 
@@ -22,11 +22,13 @@
 
 }
 
-#gButtonContainer {
-
+#gButtonContainer{
     text-align: center;
+}
 
-
+#nextBtn{
+    text-align: center;
+    display: none;
 }
 
 #myCanvas {
