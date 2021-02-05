@@ -7,8 +7,8 @@ This is a webpage I have created that will host games I have created in javascri
 I have always wanted to build a game website that has multiple games on it for users to play. When I was in middle school, popular gamesites like y8.com, miniclips.com, and cartoonnetwork.com are all I used to play computer games on. I miss the variety that used to exist; my goal is to make something simular to those hubs. 
 
 # languages
--Python 3.9
--JavaScript 
+- Python 3.9
+- JavaScript 
 
 
 # Features in development
